@@ -10,7 +10,7 @@ class MessageMeComponent extends Component{
         this.state = {
             users: [{
                 id:1,
-                name: 'naveen',
+                name: 'tendulkar',
                 message: 'Hi',
                 src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/827672/pexels-photo-119705%20(1).jpeg'
             },
@@ -23,7 +23,7 @@ class MessageMeComponent extends Component{
            ],
            messages: [{
                 id:1,
-                name: 'naveen',
+                name: 'tendulkar',
                 message: 'Hi',
                 src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/827672/pexels-photo-119705%20(1).jpeg'
             },

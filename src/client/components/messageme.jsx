@@ -21,14 +21,48 @@ class MessageMeComponent extends Component{
                 src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/827672/pexels-photo-119705%20(1).jpeg'
             },
            ],
-           currentUser:{}
+           messages: [{
+                id:1,
+                name: 'naveen',
+                message: 'Hi',
+                src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/827672/pexels-photo-119705%20(1).jpeg'
+            },
+            {
+                id:2,
+                name: 'ajit',
+                message: 'Hi',
+                src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/827672/pexels-photo-119705%20(1).jpeg'
+            },
+           ],
+           currentUser:{},
+           inputValue: 'Sample message'
         }
         this.onUserSelect = this.onUserSelect.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.addMessage = this.addMessage.bind(this);
     }
 
+    handleChange(event){
+        if (event.which == 13 || event.keyCode == 13) {
+            //code to execute here
+            addMessage(this.state.inputValue);
+            return false;
+        }
+        this.setState({ inputValue: event.target.value })
+    }
 
     onUserSelect=(user)=>{
        this.setState({currentUser:user});
+    }
+
+    addMessage = (message)=>{
+        let messages = this.state.message.concat({
+            id:this.state.currentUser.id,
+            name: this.state.currentUser.id,
+            message:message,
+            src:this.state.currentUser.src
+        })
+        this.setState({messages:messages});
     }
 
     render(){
@@ -98,14 +132,16 @@ class MessageMeComponent extends Component{
                 </div>
                 <div className="message-area">
                    {
-                     this.state.users.map((user)=>{
-                       return <MessageComponent user = {user} / >
+                     this.state.messages.map((message)=>{
+                       return <MessageComponent user = {message} / >
                      })
                    }
                 </div>
                 {
                  this.state.currentUser.id ? <div className="bottom">
-                    <input className="search-bottom" placeholder="Message #pens" type="text" >
+                    <input className="search-bottom"
+                    value={this.state.input}
+                    onChange={this.handleChange} placeholder="Message #pens" type="text" >
                                 </input>
                     <i className="smile fa fa-smile-o" aria-hidden="true"></i>
                     <h3 className="line-bottom"> | </h3>

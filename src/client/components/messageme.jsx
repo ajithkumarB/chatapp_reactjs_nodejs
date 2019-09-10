@@ -40,15 +40,23 @@ class MessageMeComponent extends Component{
         this.onUserSelect = this.onUserSelect.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.addMessage = this.addMessage.bind(this);
+        this.onKeyDown = this.onKeyDown.bind(this);
     }
 
     handleChange(event){
         if (event.which == 13 || event.keyCode == 13) {
             //code to execute here
-            addMessage(this.state.inputValue);
+            this.addMessage(this.state.inputValue);
             return false;
         }
         this.setState({ inputValue: event.target.value })
+    }
+
+    onKeyDown(e){
+        if (e.key === 'Enter') {
+            this.addMessage(this.state.inputValue);
+            this.setState({ inputValue: "" })
+          }
     }
 
     onUserSelect=(user)=>{
@@ -56,9 +64,9 @@ class MessageMeComponent extends Component{
     }
 
     addMessage = (message)=>{
-        let messages = this.state.message.concat({
+        let messages = this.state.messages.concat({
             id:this.state.currentUser.id,
-            name: this.state.currentUser.id,
+            name: this.state.currentUser.name,
             message:message,
             src:this.state.currentUser.src
         })
@@ -140,8 +148,9 @@ class MessageMeComponent extends Component{
                 {
                  this.state.currentUser.id ? <div className="bottom">
                     <input className="search-bottom"
-                    value={this.state.input}
-                    onChange={this.handleChange} placeholder="Message #pens" type="text" >
+                    value={this.state.inputValue}
+                    onChange={this.handleChange} 
+                    onKeyDown={this.onKeyDown} placeholder="Message #pens" type="text" >
                                 </input>
                     <i className="smile fa fa-smile-o" aria-hidden="true"></i>
                     <h3 className="line-bottom"> | </h3>

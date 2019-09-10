@@ -87,7 +87,7 @@ class MessageMeComponent extends Component{
                     </div>
                     <div className="row">
                         <div className="circle"></div>
-                        <h2 className="subtitle">mmang</h2>
+                        <h2 className="subtitle">{this.state.currentUser.name}</h2>
                     </div>
                     <div className="row">
                         <h2 className="channels">CHANNELS<span className="light">(29)</span>
@@ -104,14 +104,14 @@ class MessageMeComponent extends Component{
                     <div className="row">
                         <h2 className="messages">DIRECT MESSAGES<span className="light">(12)</span> <i className="add-two fa fa-plus-circle fa-inverse"></i> </h2>
                     </div>
-                    <div className="row">
-                        <div className="circle2"></div>
-                        <h2 className="subtitle2">Jsmith</h2>
-                    </div>
-                    <div className="row">
-                        <div className="circle3"></div>
-                        <h2 className="subtitle3">mmang(you)</h2>
-                    </div>
+                    {
+                       this.state.users.map((user,index)=>{
+                           return  <div className="row">
+                           <div className={"circle"+(index+2)}></div>
+                           <h2 className={"subtitle"+(index+2)}>{user.name}</h2>
+                       </div>
+                       })
+                    }
                 </div>
                 <div className="animated bounceInDown" className="header">
                     <h2 className="channel-title">

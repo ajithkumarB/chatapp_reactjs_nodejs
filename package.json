@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/naveennagan/messageme.git"
+    "url": "git+https://github.com/ajithkumarB/messageme.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/naveennagan/messageme/issues"
+    "url": "https://github.com/ajithkumarB/messageme.git/issues"
   },
-  "homepage": "https://github.com/naveennagan/messageme#readme",
+  "homepage": "https://github.com/ajithkumarB/messageme.git#readme",
   "dependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.3",

@@ -106,7 +106,7 @@ body{
     z-index: 1;
     
   }
-   
+
   .icons{
     
     padding-bottom: 5px;
@@ -452,7 +452,9 @@ body{
     right: 2%;
     top: 18%;
     display: block;
-    margin:  auto;
+    margin: auto;
+    height: 300px;
+    overflow: scroll;
     
   }
   
